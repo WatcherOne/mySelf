@@ -14,13 +14,13 @@
   * ant design 组件库
 
 ### 常见问题
-  1. 执行 npm run server 时，报错webpack-dev-server command not found <br> 需要全局安装
-  > npm install webpack-dev-server -g
+  1. 执行 npm run server 时，报错webpack-dev-server command not found <br>
+     需要全局安装 npm install webpack-dev-server -g
 
 # study
     不引用路由时
-  - 这样子的做法看起来很直接，但是这也会让整个应用程序变得更加复杂.
-  - 复杂一点的路由需求就需要我们写很多条件判断的代码去去解决实RL和层级组件的同步问题.
+  > 这样子的做法看起来很直接，但是这也会让整个应用程序变得更加复杂.
+  > 复杂一点的路由需求就需要我们写很多条件判断的代码去去解决实RL和层级组件的同步问题.
   ```javascript
     const App = React.createClass({
       render () {
