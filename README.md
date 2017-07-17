@@ -1,21 +1,21 @@
 *** watcher *** <br>
 *** myself ***
 
-### 运行
-  1. npm i
+### 运行 ###
+  1. npm i
   2. webpack --watch
   3. npm run server
 
-### 技术
-  1. es6
-  2. webpack 模块化开发
-  3. react 单页应用
-  4. react-router 路由
-  5. ant design 组件库
+### 技术 ###
+  * es6
+  * webpack 模块化开发
+  * react 单页应用
+  * react-router 路由
+  * ant design 组件库
 
 ### 常见问题
-  1. 执行 npm run server 时，报错 webpack-dev-server command not found 
-     需要全局安装 npm install webpack-dev-server -g
+  1. 执行 npm run server 时，报错webpack-dev-server command not found <br>
+     需要全局安装 > npm install webpack-dev-server -g
 
 # study
     不引用路由时
@@ -42,5 +42,5 @@
     const route = window.location.hash.substr(1);  //注意的是：网页url是以（#开头的）8080/#/home
     ReactDOM.render(<App route={route} />, document.getElementById('app'))
   ```
-  `这样子的做法看起来很直接，但是这也会让整个应用程序变得更加复杂。
-  复杂一点的路由需求就需要我们写很多条件判断的代码去去解决实RL和层级组件的同步问题。`
+  `这样子的做法看起来很直接，但是这也会让整个应用程序变得更加复杂。`
+  `复杂一点的路由需求就需要我们写很多条件判断的代码去去解决实RL和层级组件的同步问题。`
