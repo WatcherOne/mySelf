@@ -15,7 +15,7 @@
 
 ### 常见问题
   1. 执行 npm run server 时，报错webpack-dev-server command not found <br>
-     需要全局安装 npm install webpack-dev-server -g
+     需要全局安装 npm install webpack-dev-server -g
 
 # study
     不引用路由时
