@@ -1,6 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, IndexRoute, Redirect, browserHistory, BrowserRouter as Router } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  browserHistory,
+  Route,      // 这是基本的路由块
+  IndexRoute, // 这是默认加载的路由块
+  Link,       // 这是a标签
+  Switch,     // 这是监听空路由的
+  Redirect,   // 这是重定向
+  Prompt      // 防止转换
+} from 'react-router-dom'
 import 'antd/dist/antd.css'
 import Outer from './outer'
 import Home from './home'
@@ -14,9 +23,9 @@ const App = () => {
   return (
     <Router history={browserHistory}>
       <div>
-        <Route path='/' component={Home} />
+        <Route exact path='/' render={() => { return <div>这是首页</div> } } />
         <Route path='/index' component={Home} />
-        <Route path='/user/center' component={UserCenter} />
+        <Route path='/user' component={UserCenter} />
       </div>
     </Router>
   )
