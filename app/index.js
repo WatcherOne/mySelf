@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   BrowserRouter as Router,
-  browserHistory,
   Route,      // 这是基本的路由块
   IndexRoute, // 这是默认加载的路由块
   Link,       // 这是a标签
@@ -11,21 +10,32 @@ import {
   Prompt      // 防止转换
 } from 'react-router-dom'
 import 'antd/dist/antd.css'
-import Outer from './outer'
 import Home from './home'
-import UserCenter from './userCenter'
+import Header from './common/header'
+import UserCenter from './user/center'
+import UserProfile from './user/profile'
+import UserPhoto from './user/photo'
+import './index.scss'
 
-// 引用路由
-/* 为什么上下创建react组件的方式不一样，就回到创建react组件方式分类。
- * 该创建方式属于只用作展示，无法控制组件的渲染，下面的是es5方式写的。
- */
+const User = ({ match }) => {
+  return (
+    <div>
+      <Header />
+      <Redirect from={`${match.url}`} to={`${match.url}/center`} />
+      <Route path={`${match.url}/center`} component={UserCenter} />
+      <Route path={`${match.url}/profile`} component={UserProfile} />
+      <Route path={`${match.url}/photo`} component={UserPhoto} />
+    </div>
+  )
+}
+
 const App = () => {
   return (
-    <Router history={browserHistory}>
-      <div>
+    <Router>
+      <div className="body">
         <Route exact path='/' render={() => { return <div>这是首页</div> } } />
         <Route path='/index' component={Home} />
-        <Route path='/user' component={UserCenter} />
+        <Route path='/user' component={User} />
       </div>
     </Router>
   )
