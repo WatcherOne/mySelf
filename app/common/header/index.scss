@@ -1,23 +1,17 @@
 .common-header-nav {
   height: 40px;
-  text-align: center;
-  background-color: #333;
+  width: 100%;
+  line-height: 40px;
+  background-color: #242736;
+  color: #ddd;
 
-  a {
-    width: 100px;
-    height: 100%;
-    display: inline-block;
-    line-height: 40px;
-    text-align: center;
-    font-size: 16px;
-    color: palevioletred;
+  ul {
+    float: right;
+    padding: 0px 50px;
 
-    &:hover {
-      font-size: 18px;
-    }
-
-    &:focus {
-      text-decoration: none;
+    li {
+      display: inline-block;
+      margin: 0 4px;
     }
   }
 }

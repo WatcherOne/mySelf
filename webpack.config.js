@@ -1,13 +1,22 @@
 var path = require('path')
 
 module.exports = {
-  entry: "./app/index.js",
+  entry: path.resolve(__dirname, './app/index.js'),
   output: {
     path: __dirname,
     filename: "./public/bundle.js"
   },
   devServer: {
     historyApiFallback: true
+  },
+  resolve: {
+    alias: {
+      common: path.resolve(__dirname, './app/common/'),
+      user: path.resolve(__dirname, './app/user/'),
+      constants: path.resolve(__dirname, './app/constants/'),
+      reducers: path.resolve(__dirname, './app/reducers/'),
+      images: path.resolve(__dirname, './app/images'),
+    },
   },
   module: {
     loaders: [

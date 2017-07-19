@@ -1,0 +1,33 @@
+.user-header-nav {
+  height: 40px;
+  text-align: center;
+  background-color: #333;
+
+  a {
+    width: 100px;
+    height: 100%;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: palevioletred;
+
+    &:hover {
+      font-size: 18px;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+@for $i from 1 through 3 {
+  .menu#{$i} a:nth-child(#{$i}) {
+    color: red;
+
+    &:hover {
+      font-size: 16px;
+    }
+  }
+}

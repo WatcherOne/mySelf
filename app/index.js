@@ -11,16 +11,15 @@ import {
 } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import Home from './home'
-import Header from './common/header'
-import UserCenter from './user/center'
-import UserProfile from './user/profile'
-import UserPhoto from './user/photo'
+import Header from 'common/header'
+import UserCenter from 'user/center'
+import UserProfile from 'user/profile'
+import UserPhoto from 'user/photo'
 import './index.scss'
 
 const User = ({ match }) => {
   return (
     <div>
-      <Header />
       <Redirect from={`${match.url}`} to={`${match.url}/center`} />
       <Route path={`${match.url}/center`} component={UserCenter} />
       <Route path={`${match.url}/profile`} component={UserProfile} />
@@ -33,7 +32,7 @@ const App = () => {
   return (
     <Router>
       <div className="body">
-        <Route exact path='/' render={() => { return <div>这是首页</div> } } />
+        <Route path='/' component={Header}/>
         <Route path='/index' component={Home} />
         <Route path='/user' component={User} />
       </div>
