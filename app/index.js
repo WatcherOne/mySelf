@@ -20,7 +20,7 @@ import './index.scss'
 const User = ({ match }) => {
   return (
     <div>
-      <Redirect from={`${match.url}`} to={`${match.url}/center`} />
+      <Route exact path={`${match.url}`} component={UserCenter} />
       <Route path={`${match.url}/center`} component={UserCenter} />
       <Route path={`${match.url}/profile`} component={UserProfile} />
       <Route path={`${match.url}/photo`} component={UserPhoto} />

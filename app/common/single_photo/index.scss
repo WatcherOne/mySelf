@@ -1,0 +1,27 @@
+@at-root {
+  .img-figure {
+    width: 320px;
+    height: 360px;
+    margin: 0px;
+    padding: 40px;
+    background-color: #fff;
+    box-sizing: border-box;  // width的值包含padding
+    position: absolute;
+    top: 0px;
+
+    img {
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  figcation {
+    text-align: center;
+
+    .img-title {
+      margin: 20px 0px 0px 0px;
+      color: #a7a0a2;
+      font-size: 16px;
+    }
+  }
+}
