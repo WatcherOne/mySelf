@@ -58,7 +58,7 @@ export default class extends React.Component {
           hPosRangeY = hPosRange.y,
           vPosRangeTopY = vPosRange.topY,
           vPosRangeX = vPosRange.x,
-          topImgNum = Math.ceil(Math.random() * 2); // 取一个或者不取
+          topImgNum = Math.floor(Math.random() * 2); // 取一个或者不取
 
     let imgsArrangeTopArr = [],
         topImgSpliceIndex = 0,
