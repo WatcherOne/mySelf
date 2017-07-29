@@ -10,7 +10,6 @@ import {
   Prompt      // 防止转换
 } from 'react-router-dom'
 import 'antd/dist/antd.css'
-import Home from './home'
 import Header from 'common/header'
 import UserCenter from 'user/center'
 import UserProfile from 'user/profile'
@@ -29,11 +28,11 @@ const User = ({ match }) => {
 }
 
 const App = () => {
+  // 在‘/’路由中，不加exact(完全匹配)则表示其他路由会匹配到该路由
   return (
     <Router>
       <div className="body">
         <Route path='/' component={Header}/>
-        <Route path='/index' component={Home} />
         <Route path='/user' component={User} />
       </div>
     </Router>

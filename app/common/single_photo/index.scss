@@ -5,9 +5,18 @@
     margin: 0px;
     padding: 40px;
     background-color: #fff;
+    cursor: pointer;
     box-sizing: border-box;  // width的值包含padding
     position: absolute;
     top: 0px;
+    transform-style: preserve-3d;
+    transform-origin: 0  0;
+    transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+    perspective: 600px;
+
+    &.is-inverse {
+      transform: translate(320px) rotateY(180deg);
+    }
 
     img {
       width: 240px;
@@ -22,6 +31,30 @@
       margin: 20px 0px 0px 0px;
       color: #a7a0a2;
       font-size: 16px;
+    }
+
+    .img-back {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 100%;
+      padding: 50px 40px;
+
+      box-sizing: border-box;
+      text-align: left;
+      color: #a7a0a2;
+      background-color: #fff;
+      overflow: auto;
+      font-size: 22px;
+      line-height: 1.25;
+      transform: rotateY(180deg) translateZ(1px);
+      backface-visibility: hidden;
+
+      p {
+        margin: 0px;
+      }
     }
   }
 }
