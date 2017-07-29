@@ -9,13 +9,13 @@
     box-sizing: border-box;  // width的值包含padding
     position: absolute;
     top: 0px;
-    transform-style: preserve-3d;
-    transform-origin: 0  0;
+    transform-style: preserve-3d; // 使被转换的子元素保留其 3D 转换
+    transform-origin: 0 50% 0;    // 设置旋转元素的基点位置，x轴原点，y轴原点，z轴原点
     transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
-    perspective: 600px;
 
     &.is-inverse {
       transform: translate(320px) rotateY(180deg);
+      // translate 2d移动，新位置坐标，x轴
     }
 
     img {
@@ -50,7 +50,7 @@
       font-size: 22px;
       line-height: 1.25;
       transform: rotateY(180deg) translateZ(1px);
-      backface-visibility: hidden;
+      backface-visibility: hidden;   //隐藏被旋转的 div 元素的背面
 
       p {
         margin: 0px;

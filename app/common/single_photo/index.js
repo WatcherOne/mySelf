@@ -13,26 +13,27 @@ export default class extends React.Component {
     }
   }
 
+  getImgStyle() {
+    const arrange = this.props.arrange
+    let styleObj = arrange.pos  // 添加定位
+    // 添加旋转角度
+    if (arrange.rotate) {
+      (['-moz-', '-ms-', '-webkit-', '']).forEach((value) => {
+        styleObj[`${value}transform`] = `rotate(${arrange.rotate}deg)`
+      })
+    }
+    if (arrange.isCenter) {
+      styleObj.zIndex = 11;
+    }
+    return styleObj
+  }
+
   render() {
     const { key, imageURL, title, desc } = this.props.data
-    const arrange = this.props.arrange
-    let pos = {};
-    let rotate = {};
-    if (arrange) {
-      // 添加定位
-      pos = arrange.pos;
-      // 添加旋转角度
-      if (arrange.rotate) {
-        (['-moz-', '-ms-', '-webkit-', '']).forEach((value) => {
-          pos[`${value}transform`] = `rotate(${arrange.rotate}deg)`
-        })
-      }
-      if (arrange.isCenter) {
-        pos.zIndex = 11;
-      }
-    }
+    const imgFigureClassName = `img-figure${this.props.arrange.isInverse ? ' is-inverse' : ''}`
+    const styleObj = this.getImgStyle()
     return (
-      <figure className={`img-figure ${this.props.arrange.isInverse ? 'is-inverse' : ''}`} style={pos} key={key} onClick={this.handleClick.bind(this)}>
+      <figure className={imgFigureClassName} style={styleObj} key={key} onClick={this.handleClick.bind(this)}>
         <img src={imageURL} alt={title}/>
         <figcation>
           <h2 className='img-title'>{title}</h2>

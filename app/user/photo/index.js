@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from 'user/header'
-import SinglePhoto from 'common/single_photo'
-import './index.scss'
 import imageDatas from './handle/image_data.js'
+import SinglePhoto from 'common/single_photo'
+import Controller from 'common/controller'
+import './index.scss'
 
 const constant = {
   centerPos: {
@@ -168,9 +169,9 @@ export default class extends React.Component {
     this.rearrange(0);
   }
 
-  render() {
-    const imageFigures = [];
-    const controllerUnits = [];
+  getImgData() {
+    const imageFigures = []
+    const controllerUnits = []
     imageDatas.forEach( (value, index) => {
       if (!this.state.imgsArrangeArr[index]) {
         // 初始化定位到左上角
@@ -181,11 +182,21 @@ export default class extends React.Component {
           isCenter: false
         }
       }
-      imageFigures.push(<SinglePhoto data={value} key={index} ref={`imgFigure${index}`}
+      imageFigures.push(<SinglePhoto key={index} data={value}
+        ref={`imgFigure${index}`}
+        arrange={this.state.imgsArrangeArr[index]}
+        inverse={this.inverse(index)}
+        setCenter={this.setCenter(index)}/>)
+      controllerUnits.push(<Controller key={index}
         arrange={this.state.imgsArrangeArr[index]}
         inverse={this.inverse(index)}
         setCenter={this.setCenter(index)}/>)
     })
+    return { imageFigures, controllerUnits }
+  }
+
+  render() {
+    const { imageFigures, controllerUnits } = this.getImgData()
     return (
       <div className='user-photo'>
         <Header selected='menu2'/>
