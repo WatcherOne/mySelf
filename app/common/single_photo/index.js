@@ -18,8 +18,8 @@ export default class extends React.Component {
     let styleObj = arrange.pos  // 添加定位
     // 添加旋转角度
     if (arrange.rotate) {
-      (['-moz-', '-ms-', '-webkit-', '']).forEach((value) => {
-        styleObj[`${value}transform`] = `rotate(${arrange.rotate}deg)`
+      (['MozTransform', 'msTransform', 'WebkitTransform', 'transform']).forEach((value) => {
+        styleObj[value] = `rotate(${arrange.rotate}deg)`
       })
     }
     if (arrange.isCenter) {
@@ -29,11 +29,11 @@ export default class extends React.Component {
   }
 
   render() {
-    const { key, imageURL, title, desc } = this.props.data
+    const { imageURL, title, desc } = this.props.data
     const imgFigureClassName = `img-figure${this.props.arrange.isInverse ? ' is-inverse' : ''}`
     const styleObj = this.getImgStyle()
     return (
-      <figure className={imgFigureClassName} style={styleObj} key={key} onClick={this.handleClick.bind(this)}>
+      <figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick.bind(this)}>
         <img src={imageURL} alt={title}/>
         <figcation>
           <h2 className='img-title'>{title}</h2>

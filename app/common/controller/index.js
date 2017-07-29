@@ -14,12 +14,12 @@ export default class extends React.Component {
   }
 
   render() {
-    const { key, arrange } = this.props;
+    const { arrange } = this.props;
     const isCenter = arrange.isCenter;
     const isInverse = arrange.isInverse;
     const controllerClassName = `controller-unit${arrange.isCenter ? ' is-center' : ''}`
     return (
-      <span className={controllerClassName} key={key} onClick={this.handleClick.bind(this)}>
+      <span className={controllerClassName} onClick={this.handleClick.bind(this)}>
         {
           isInverse ? <i className='iconfont icon-wanjiantou-copy1'></i> :
           isCenter ? <i className='iconfont icon-wanjiantou-copy'></i> : ''
